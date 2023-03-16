@@ -5,17 +5,18 @@
 
 <script>
   import SearchBar  from "./components/SearchBar.vue";
-  import VideoList from "./components/VideoList.vue"
-  const API_KEY = 'AIzaSyB45Pox1wG4E1YXsNpsHX5Dd8y8PUvXnwA'
+  // import VideoList from "./components/VideoList.vue"
+  const API_KEY = process.env.VUE_APP_SOME_KEY;
 
   export default {
     name: 'App',
     components: {
       SearchBar,
-      VideoList
+      // VideoList
     },
     methods: {
       onTermChange(searchTerm) {
+        console.log(process.env.VUE_APP_SOME_KEY);
         fetch('https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({
           key: API_KEY,
           type: 'video',
